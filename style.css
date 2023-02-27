@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,400;0,700;1,300&display=swap');
+
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+
+html,
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+
+.container {
+    --max-width: 50rem;
+    width: min(100% - 2rem, var(--max-width));
+    margin-inline: auto;
+}
+
+.semi-transparent-text {
+    opacity: .5;
+}
+
+.hero {
+    --effect-strength: .5;
+    position: relative;
+    isolation: isolate;
+    padding: 1em;
+}
+
+.hero-title-container {
+    position: relative;
+    margin-block: 5rem;
+}
+
+.hero-title {
+    color: #3a3a3a;
+    mix-blend-mode: color-burn;
+    line-height: 1.1;
+    font-size: 5rem;
+    font-weight: 700;
+    min-width: 13ch;
+    margin: 0;
+}
+
+.hero-title[data-overlay] {
+    mix-blend-mode: revert;
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #111;
+    z-index: 2;
+    opacity: calc(1 - var(--effect-strength));
+}
+
+.canvas-container {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    height: 40vh;
+    clip-path: polygon(0 0, 100% 0, 100% 35%, 0% 100%);
+}
+
+canvas {
+    width: 100%;
+    height: 100%;
+}
